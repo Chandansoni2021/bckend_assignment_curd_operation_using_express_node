@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+   .header {
+    background: #006f85;
+    margin: 0px;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100px; /* Example height */
+}
+
+h1 {
+    color: #ffffff;
+    /* Additional styles */
+}
+
+
+        form {
+            max-width: 400px;
+            margin: 60px auto;
+            border:2px solid black;
+            padding: 40px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 340px;
+        padding: 8px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        border: 1px solid #5e5b5b;
+        border-radius: 4px;
+    }
+
+    button[type="submit"] {
+        width: 30%;
+        padding: 8px;
+        margin-bottom: 10px;
+        margin-left: 128px;
+        border: 1px solid #ccc4c4;
+        border-radius: 4px;
+    }
+
+    button[type="submit"] {
+        margin-top: 20px;
+        background-color: #07aa3dc9;
+        border-radius: 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">Edit User</h1>
+    <form action="/details/{{index}}/update" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{user.name}}">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{user.email}}">
+        <br>
+        <label for="img_link">Image Link:</label>
+        <input type="text" id="img_link" name="img_link" value="{{user.img_link}}">
+        <br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!-- views/details.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d7d7d7;
+            /* light gray background */
+        }
+
+    .header {
+    background: #632a22;
+    margin: 0px;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100px; /* Example height */
+}
+
+h1 {
+    color: #ffffff;
+    /* Additional styles */
+}
+
+
+     .user-list {
+            display: flex;
+            margin-left: 30px;
+            flex-wrap: wrap;
+            /* Allow flex items to wrap to the next line */
+            justify-content: center;
+            /* Center items horizontally */
+            list-style-type: none;
+            padding: 30px;
+        
+        }
+
+        .user-item {
+            margin-bottom: 20px;
+            width: 350px;
+            padding: 20px;
+            margin: 30px;
+            background-color: #fafafa;
+            border-radius: 12px;
+            border: 1px solid black;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-details {
+            margin-bottom: 10px;
+        }
+
+        .user-name,
+        .user-email {
+            color: #003cff;
+          
+            font-weight: bold;
+        }
+
+        .user-image img {
+            max-width: 300px;
+            margin-left: 80px;
+            height: 250px;
+    margin:20px;
+            margin-top: 10px;
+            
+        }
+
+        .user-actions .action-link {
+            text-decoration: none;
+            background: #cbc4c4;
+            border-radius: 7px;
+            padding: 7px;
+            color: #007bff;
+            margin-right: 10px;
+            transition: color 0.3s;
+        }
+        .add-user-link {
+    display: inline-block;
+
+    background-color: #007bff; /* Blue background color */
+    color: #ffffff; /* White text color */
+    padding: 6px 10px; /* Padding around the text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.add-user-link:hover {
+    background-color: #0056b3; /* Darker blue background color on hover */
+}
+
+
+        .user-actions .action-link:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="header">User Details</h1>
+    <ul class="user-list">
+        {{#each userDetails}}
+        <li class="user-item">
+            <div class="user-details">
+                <span class="user-name">Name: {{this.name}}</span><br>
+                <span class="user-email">Email: {{this.email}}</span>
+            </div>
+            <div class="user-image">
+                <img src="{{
+                    img_link}}" alt="User Image">
+            </div>
+            <div class="user-actions">
+                <a href="/details/{{@index}}/edit" class="action-link">Edit</a>
+                <a href="/details/{{@index}}/delete" class="action-link">Delete</a>
+                <a href="/form" class="add-user-link">Add New User</a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+
+
+
+</body>
+
+</html>
