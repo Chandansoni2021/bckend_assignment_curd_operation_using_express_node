@@ -1,0 +1,178 @@
+<!-- views/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+     
+    }
+.main{
+    font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        /* horizontally center */
+        align-items: center;
+        /* vertically center */
+        height: 80vh;
+        /* set the height of the body to the viewport height */
+}
+/* Form styles */
+form {
+    width: 700px;
+    height: 400px;
+    border: 2px solid transparent; /* Set initial border color to transparent */
+    position: relative; /* Required for absolute positioning of pseudo-element */
+    overflow: hidden; /* Ensure overflow is hidden to contain the gradient animation */
+    border-radius: 20px;
+
+}
+
+/* Animation */
+form::before {
+    content: '';
+    position: absolute;
+    top: -2px; /* Adjust to match border width */
+    left: -2px; /* Adjust to match border width */
+    right: -2px; /* Adjust to match border width */
+    bottom: -2px; /* Adjust to match border width */
+    z-index: -1;
+    background: linear-gradient(45deg, #ff6b6b, #1e90ff, #36d7b7, #ffcb77); /* Define your gradient colors */
+    background-size: 400% 400%; /* Larger values for smoother animation */
+    border-radius: 5px; /* Adjust to match form's border-radius */
+    animation: gradientAnimation 10s ease infinite; /* Adjust duration as needed */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+    label {
+        display: block;
+        /* background: #000; */
+        margin-bottom: 5px;
+        margin-top: 5px;
+        margin-left: 13px;
+        width: 300px;
+        font-size: larger
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 600px;
+        padding: 8px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        border: 1px solid #5e5b5b;
+        border-radius: 4px;
+    }
+
+    button[type="submit"] {
+        width: 30%;
+        padding: 8px;
+        margin-bottom: 10px;
+        margin-left: 240px;
+        border: 1px solid #ccc4c4;
+        border-radius: 4px;
+    }
+
+    button[type="submit"] {
+        margin-top: 20px;
+        background-color: #000000;
+        border-radius: 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    /* Details styles */
+  /* Center content */
+h1 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center; /* vertically center */
+  
+}
+
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+        margin-left: 10px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+    .header {
+    background: #ffaa00;
+margin: 0px;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100px; /* Example height */
+}
+
+h1 {
+    color: #ffffff;
+    /* Additional styles */
+}
+
+</style>
+
+<body>
+    <h1 class="header">Registration </h1>
+    <div class="main">
+    <form action="/formPost" method="POST">
+        <h1> Registration-Form</h1>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <br>
+    
+        <label for="img_link">Image-Link:</label>
+<input type="text" id="img" name="img_link"> <!-- You have "name="img-link"" -->
+
+        <br>
+        <button type="submit">Submit</button>
+
+        
+    </form>
+</div>
+</body>
+
+</html>
